@@ -1,0 +1,29 @@
+﻿@model BandAide.Models.ViewModels.MemberSearchesViewModel
+
+@{
+    ViewData["Title"] = "MemberSearches";
+}
+
+<div class="container" style="padding-top:1em">
+    <div class="row">
+        <div class="col">
+            <h2>Active Searches</h2>
+            <hr style="border:double"/>
+        </div>
+    </div>
+    @foreach (var search in Model.MemberSearches)
+    {
+        <div class="row">
+            <div class="col">
+                <p>@search.Instrument.Name</p>k
+            </div>
+            <div class="col">
+                @{ List<AppUser> results = Model.MemberSearchResults[search.Id];}
+                @foreach (var r in results)
+                {
+                    <p>@r.UserName</p>
+                }
+            </div>
+        </div>
+    }
+</div>

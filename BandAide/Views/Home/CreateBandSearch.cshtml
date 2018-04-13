@@ -1,0 +1,28 @@
+﻿@model CreateBandSearchViewModel;
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <p1>I would like to play...</p1>
+        </div>
+    </div>
+    <form asp-action="CreateBandSearch" method="post">
+        <input asp-for="AppUserId" type="hidden" />
+        <div class="row">
+            <div class="col">
+                <select asp-for="InstrumentId" id="instrumentSelect" class="selectpicker" title="Instrument" data-live-search="true" data-style="btn-primary">
+                    @foreach (var instrument in Model.AppUser.InstrumentSkills.Select(iSk => iSk.Instrument))
+                    { <option value="@instrument.Id">@instrument.Name</option>}
+                </select>
+            </div>
+        </div>
+        <div class="row" style="padding-top:1em">
+            <div class="col">
+                <div class="form-group">
+                    <input type="submit" value="A" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

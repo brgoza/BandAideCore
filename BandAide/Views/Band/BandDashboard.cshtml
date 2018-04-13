@@ -1,0 +1,53 @@
+﻿@model BandAide.Models.ViewModels.BandDashboardViewModel
+
+
+<div class="parent-container">
+    <div class="container" style="padding-top:2em">
+        <div class="row">
+            <div class="col">
+                <h2>@Model.Band.Name</h2>
+            </div>
+        </div>
+
+        @foreach (var member in Model.Band.BandsMembers)
+        {
+            <div class="row">
+                <div class="col">
+                    @member.AppUser.UserName
+                </div>
+            </div>
+        }
+        </div>
+    <div class="container" style="padding-top:2em">
+        <div class="row">
+            <div class="col">
+                <h2>Active Searches</h2>
+            </div>
+        </div>
+
+        @foreach (var search in Model.Band.MemberSearches)
+    {
+        <div class="row">
+            <div class="col">
+                <h3 style="font-family:'Script MT'">@search.Instrument.Name</h3>
+            </div>
+            <div class="col">
+                @foreach (var result in search.Results)
+        {
+            <div class="row">
+                <div class="col">
+                    <p>@result.UserName</p>
+                </div>
+            </div>
+}
+            </div>
+        </div>
+            }
+        
+        <div class="row" style="padding-top:1em">
+            <div class="col">
+                <a class="btn btn-primary" asp-action="CreateMemberSearch" asp-controller="Band" asp-route-bandId="@Model.Band.Id">Search for more members</a>
+            </div>
+        </div>
+    </div>
+</div>

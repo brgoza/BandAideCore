@@ -1,0 +1,25 @@
+﻿@model BandAide.Models.ViewModels.BandDetailsViewModel
+
+<div class="parent-container">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>@Model.Band.Name</h2>
+            </div>
+        </div>
+
+        @foreach (var bandMember in Model.Band.BandsMembers)
+        {
+            <div class="row">
+                <div class="col">
+                    <p>@bandMember.AppUser.UserName</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="container">
+
+    </div>
+</div>
+

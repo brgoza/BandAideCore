@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20180325141646_AddedBands_Iskills_Instruments.cs" />
+    <Compile Remove="Migrations\20180325141646_AddedBands_Iskills_Instruments.Designer.cs" />
+    <Compile Remove="Migrations\20180325214904_test1.cs" />
+    <Compile Remove="Migrations\20180325214904_test1.Designer.cs" />
+    <Compile Remove="Migrations\20180325215933_test2.cs" />
+    <Compile Remove="Migrations\20180325215933_test2.Designer.cs" />
+    <Compile Remove="Migrations\20180325222259_test3.cs" />
+    <Compile Remove="Migrations\20180325222259_test3.Designer.cs" />
+    <Compile Remove="Migrations\20180327190942_testmig1.cs" />
+    <Compile Remove="Migrations\20180327190942_testmig1.Designer.cs" />
+    <Compile Remove="Migrations\20180329215330_AddedBandsMembersDbSet.cs" />
+    <Compile Remove="Migrations\20180329215330_AddedBandsMembersDbSet.Designer.cs" />
+    <Compile Remove="Migrations\20180329215917_AddedBandsMembersDbSet.cs" />
+    <Compile Remove="Migrations\20180329215917_AddedBandsMembersDbSet.Designer.cs" />
+    <Compile Remove="Migrations\20180329221209_AddedBandsMembersDbSet.cs" />
+    <Compile Remove="Migrations\20180329221209_AddedBandsMembersDbSet.Designer.cs" />
+    <Compile Remove="Migrations\20180401222230_RenamedField.cs" />
+    <Compile Remove="Migrations\20180401222230_RenamedField.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="RestSharp" Version="106.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+</Project>

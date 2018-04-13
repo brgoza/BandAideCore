@@ -1,0 +1,101 @@
+﻿@model BandAide.Models.ViewModels.DashBoardViewModel;
+
+<div class="parent-container">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Bands</h3>
+            </div>
+        </div>
+        @foreach (var band in Model.Bands)
+        {
+            <div class="row">
+                <div class="col">
+                    <a asp-action="BandDashboard" asp-controller="Band" asp-route-bandId="@band.Id">@band.Name</a>
+                </div>
+            </div>
+        }
+        @if (Model.Bands.Count == 0)
+        {
+            <div class="row">
+                <div class="col">
+                    <p>You don't appear to be associated with any bands.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a asp-action="Create" asp-controller="Band" class="btn btn-primary" role="button">Form a new band</a>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col">
+                <h3>Search Results</h3>
+            </div>
+        </div>
+        @foreach (var search in Model.AppUser.BandSearches)
+        {
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        @search.Instrument.Name
+                    </div>
+                </div>
+
+                @foreach (var result in search.BandSearchResults.Bands)
+                {<div class="row">
+                        <div class="col">
+                            @Html.ActionLink(result.Name,"Details","Band", new { bandId = result.Id })
+                        </div>
+                    </div>
+                }
+            </div>
+
+        }
+        <div class="row">
+            <div class="col">
+                <a asp-action="CreateBandSearch" asp-controller="Home" asp-route-AppUser="@Model.AppUser" class="btn btn-primary">Look for a band</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Skills</h2>
+            </div>
+        </div>
+        @if (Model.InstrumentSkills.Count == 0)
+        {
+            <div class="row">
+                <div class="col">
+                    <p>You haven't told us about your skills.</p>
+                </div>
+            </div>
+        }
+        @foreach (var skill in Model.InstrumentSkills)
+        {
+            <div class="row">
+                <div class="col">
+                    <H4>@skill.Instrument.Name</H4>
+                    <div class="col">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                 aria-valuenow="@skill.Proficiency" aria-valuemin="0" aria-valuemax="100" style="width: @skill.Proficiency%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col" style="padding-top:1em">
+                <a asp-action="Create" asp-controller="InstrumentSkill" class="btn btn-primary">Tell us more</a>
+            </div>
+        </div>
+    </div>
+    @*<div class="container">
+
+
+        </div>*@
+</div>

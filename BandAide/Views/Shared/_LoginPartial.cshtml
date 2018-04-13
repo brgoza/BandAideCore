@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using BandAide.Models;
+@inject UserManager<AppUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <ul class="nav navbar-nav ml-auto">
+        <li>
+            <a asp-controller="Manage" asp-action="Index" class="nav-link">Hello @UserManager.GetUserName(User)!</a>
+        </li>
+        <li>
+            <a asp-controller="Account" asp-action="Logout" class="nav-link">Log out</a>
+        </li>
+    </ul>
+
+}
+else
+{
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a asp-action="Login" asp-controller="Account" method="get" class="nav-link" role="button">Login</a>
+        </li>
+        <li class="nav-item active">
+            <a asp-action="Register" asp-controller="Account" method="get" class="nav-link" role="button">Register</a>
+        </li>
+    </ul>
+}
